@@ -1,0 +1,289 @@
+<style>
+.sup {
+    font-size: x-small;
+}
+</style>
+<p>Find Blue Distinction Centers and Blue Distinction Centers+</p>
+
+<p>The <strong>Blue Distinction Center Finder</strong> is an easy-to-use tool to help you find hospitals that provide high-quality specialty care where and when you need it most.</p>
+
+<p>Hospitals may all look the same, but the fact is there are often differences in the quality of care patients receive depending on the facility they choose. That&rsquo;s why Blue Cross and Blue Shield companies have identified <strong>Blue Distinction Centers<sup>&reg;</sup></strong> and <strong>Blue Distinction Centers+</strong> for our members. Blue Distinction Centers<sup>&reg;</sup> are hospitals recognized for their expertise in delivering specialty care and Blue Distinction Centers+ are hospitals recognized for their expertise and efficiency in delivering specialty care.</p>
+
+<p>Blue Distinction Centers are available for:</p>
+<ul>
+<li>Bariatric Surgery</li>
+<li>Cardiac Care</li>
+<li>Complex and Rare Cancers</li>
+<li>Knee and Hip Replacement</li>
+<li>Spine Surgery</li>
+<li>Transplants</li>
+ </ul>
+<p>Blue Distinction Centers+ are expanding into all specialty areas, and are currently available for:</p>
+<ul>
+<li>Spine Surgery</li>
+<li>Knee and Hip Replacement</li>
+</ul>
+<p>Blue Distinction<sup>&reg;</sup> Specialty Care Program can help you and your doctor have an informed discussion about how to find the right hospital for the specific procedure you need. If you and/or your doctor would like to learn more about this program or the selection criteria used to evaluate facilities for designation, visit <a href="/preview!www.bcbs.com/bluedistinction">www.bcbs.com/bluedistinction</a> or contact your local Blue Plan.</p>
+
+
+
+<div class="separator">
+  <div class="error-block mtm f75em" id="error_top_level">In order to complete your search, please complete the steps indicated below.</div>
+</div>
+
+<div id="finder">
+	<form enctype="application/x-www-form-urlencoded" id="treatment-options" method="get" action="/innovations/bluedistinction/new-bdc-finder/index.html">
+		<div class="form-items blue-centers">
+			<div class="step">
+				<h2>STEP 1: Choose Type</h2>
+			</div>
+			<div class="separator">
+				<select id="center_level" name="bdc_type">
+					<option value="">Search All</option>
+					<option value="bdc">Blue Distinction Centers</option>
+					<option value="bdc-plus">Blue Distinction Centers+</option>
+				</select>
+			</div>
+			
+			<div class="step">
+				<h2>STEP 2: Choose a Specialty</h2>
+				<div class="error-block mtm f75em" id="error_speciality">Please choose a Specialty.</div>
+			</div>
+			<div class="separator">
+				<table cellpadding="0" cellspacing="0" class="blue-centers-speciality">
+					<tbody>
+						<tr>
+							<td>
+								<input type="checkbox" id="all_id" name="center_type" class="filter-speciality" value="" />
+								<label class="filter-label" for="all_id"><b>Search ALL Specialties</b></label>
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" id="bariatric_id" name="center_type" class="filter-speciality" value="bariatric" />
+								<label class="filter-label" for="bariatric_id">Bariatric Surgery</label>
+							</td>
+							<td>
+								<input type="checkbox" id="knee_hip_id" name="center_type" class="filter-speciality" value="knee-hip" />
+								<label class="filter-label" for="knee_hip_id">Knee and Hip Replacement</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" id="cardiac_id" name="center_type" class="filter-speciality" value="cardiac" />
+								<label class="filter-label" for="cardiac_id">Cardiac Care</label>
+							</td>
+							<td>
+								<input type="checkbox" id="spine_id" name="center_type" class="filter-speciality" value="spine" />
+								<label class="filter-label" for="spine_id">Spine Surgery</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" id="cancer_id" name="center_type" class="filter-speciality" value="cancer" />
+								<label class="filter-label" for="cancer_id">Complex and Rare Cancers</label>
+							</td>
+							<td>
+								<input type="checkbox" id="transplant_id" name="center_type" class="filter-speciality" value="transplant" />
+								<label class="filter-label" for="transplant_id">Transplants</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							  <div id="cancer_id_sub" style="display:none;">
+    								<div class="error-block mbm" id="error_speciality_cancer">Please choose a Speciality.</div>
+    								<div class="mbm">
+    									<input type="checkbox" id="cancer_sub_all" class="all-sub-speciality" />
+    									<label class="filter-label f95em" for="cancer_sub_all"><b>Search ALL Sub-specialities</b></label>
+    								</div>
+    								<ul class="sub-list" id="cancer_sub">
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub1_id" name="cancer_type" type="checkbox" value="acute-leukemia" />
+    										<label class="filter-label" for="cancer_sub1_id">Acute Leukemia - Inpatient, Non-Surgical</label>
+    									</li>
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub2_id" name="cancer_type" type="checkbox" value="bladder" />
+    										<label class="filter-label" for="cancer_sub2_id">Bladder</label>
+    									</li>
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub3_id" name="cancer_type" type="checkbox" value="bone" />
+    										<label class="filter-label" for="cancer_sub3_id">Bone - Primary</label>
+    									</li>
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub4_id" name="cancer_type" type="checkbox" value="brain" />
+    										<label class="filter-label" for="cancer_sub4_id">Brain - Primary</label>
+    									</li>
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub5_id" name="cancer_type" type="checkbox" value="esophageal" />
+    										<label class="filter-label" for="cancer_sub5_id">Esophageal</label>
+    									</li>
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub6_id" name="cancer_type" type="checkbox" value="gastric" />
+    										<label class="filter-label" for="cancer_sub6_id">Gastric</label>
+    									</li>
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub7_id" name="cancer_type" type="checkbox" value="head-neck" />
+    										<label class="filter-label" for="cancer_sub7_id">Head and Neck</label>
+    									</li>
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub8_id" name="cancer_type" type="checkbox" value="liver" />
+    										<label class="filter-label" for="cancer_sub8_id">Liver - Primary</label>
+    									</li>
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub9_id" name="cancer_type" type="checkbox" value="ocular" />
+    										<label class="filter-label" for="cancer_sub9_id">Ocular Melanoma</label>
+    									</li>
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub10_id" name="cancer_type" type="checkbox" value="pancreatic" />
+    										<label class="filter-label" for="cancer_sub10_id">Pancreatic</label>
+    									</li>
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub11_id" name="cancer_type" type="checkbox" value="rectal" />
+    										<label class="filter-label" for="cancer_sub11_id">Rectal</label>
+    									</li>
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub12_id" name="cancer_type" type="checkbox" value="soft-tissue" />
+    										<label class="filter-label" for="cancer_sub12_id">Soft tissue sarcomas</label>
+    									</li>
+    									<li class="clearfix">
+    										<input class="filter-input" id="cancer_sub13_id" name="cancer_type" type="checkbox" value="thyroid" />
+    										<label class="filter-label" for="cancer_sub13_id">Thyroid - Medullary and/or Anaplastic</label>
+    									</li>
+    								</ul>
+    							</div>
+							</td>
+							<td>
+							  <div id="transplant_id_sub" style="display:none;">
+							    <div class="error-block mbm" id="error_speciality_transplant">Please choose a Speciality.</div>
+  								<div class="mbm">
+  									<input type="checkbox" id="transplant_sub_all" class="all-sub-speciality" />
+  									<label class="filter-label f95em" for="transplant_sub_all"><b>Search ALL Sub-specialities</b></label>
+  								</div>
+  								<ul class="sub-list" id="transplant_sub">
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub9_id" name="transplant_type" type="checkbox" value="adult-allogeneic-marrow" />
+  										<label class="filter-label" for="transplant_sub9_id">Adult Allogeneic Bone Marrow/Stem Cell</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub10_id" name="transplant_type" type="checkbox" value="adult-autologous-marrow" />
+  										<label class="filter-label" for="transplant_sub10_id">Adult Autologous Bone Marrow/Stem Cell</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub11_id" name="transplant_type" type="checkbox" value="adult-marrow" />
+  										<label class="filter-label" for="transplant_sub11_id">Adult Autologous &amp; Allogeneic Bone Marrow/Stem Cell</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub12_id" name="transplant_type" type="checkbox" value="pediatric-allogeneic-marrow" />
+  										<label class="filter-label" for="transplant_sub12_id">Pediatric Allogeneic Bone Marrow/Stem Cell</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub13_id" name="transplant_type" type="checkbox" value="pediatric-autologous-marrow" />
+  										<label class="filter-label" for="transplant_sub13_id">Pediatric Autologous Bone Marrow/Stem Cell</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub14_id" name="transplant_type" type="checkbox" value="pediatric-marrow" />
+  										<label class="filter-label" for="transplant_sub14_id">Pediatric Autologous &amp; Allogeneic Bone Marrow/Stem Cell</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub15_id" name="transplant_type" type="checkbox" value="marrow" />
+  										<label class="filter-label" for="transplant_sub15_id">Adult &amp; Pediatric Allogeneic Bone Marrow/Stem Cell</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub16_id" name="transplant_type" type="checkbox" value="marrow" />
+  										<label class="filter-label" for="transplant_sub16_id">Adult &amp; Pediatric Autologous Bone Marrow/Stem Cell</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub17_id" name="transplant_type" type="checkbox" value="marrow" />
+  										<label class="filter-label" for="transplant_sub17_id">Adult &amp; Pediatric Autologous &amp; Allogeneic Bone Marrow/Stem Cell</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub3_id" name="transplant_type" type="checkbox" value="adult-heart-lung" />
+  										<label class="filter-label" for="transplant_sub3_id">Adult Combination Heart Lung</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub18_id" name="transplant_type" type="checkbox" value="pediatric-heart-lung" />
+  										<label class="filter-label" for="transplant_sub18_id">Pediatric Combination Heart Lung</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub1_id" name="transplant_type" type="checkbox" value="adult-heart" />
+  										<label class="filter-label" for="transplant_sub1_id">Adult Heart</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub19_id" name="transplant_type" type="checkbox" value="pediatric-heart" />
+  										<label class="filter-label" for="transplant_sub19_id">Pediatric Heart</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub4_id" name="transplant_type" type="checkbox" value="adult-liver" />
+  										<label class="filter-label" for="transplant_sub4_id">Adult Liver</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub20_id" name="transplant_type" type="checkbox" value="pediatric-liver" />
+  										<label class="filter-label" for="transplant_sub20_id">Pediatric Liver</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub2_id" name="transplant_type" type="checkbox" value="adult-lung" />
+  										<label class="filter-label" for="transplant_sub2_id">Adult Lung</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub21_id" name="transplant_type" type="checkbox" value="pediatric-lung" />
+  										<label class="filter-label" for="transplant_sub21_id">Pediatric Lung</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub6_id" name="transplant_type" type="checkbox" value="adult-pancreas" />
+  										<label class="filter-label" for="transplant_sub6_id">Adult Pancreas (PAK/PTA)</label>
+  									</li>
+  									<li class="clearfix">
+  										<input class="filter-input" id="transplant_sub5_id" name="transplant_type" type="checkbox" value="simultaneous-pancreas-kidney" />
+  										<label class="filter-label" for="transplant_sub5_id">Adult Simultaneous Pancreas Kidney (SPK)</label>
+  									</li>
+  								</ul>
+							  </div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="step">
+				<h2>STEP 3: Choose a State</h2>
+				<div class="f75em">
+					<span class="f95em">Choose one or more states below:</span>
+				</div>
+			</div>
+			<div class="f75em separator">
+				<div class="error-block mvm" id="error_state">Please choose a State.</div>
+				
+				<input type="checkbox" id="center_states_all" name="state" value="" class="filter-state" />
+				<label class="filter-label" for="center_states_all"><b>Search ALL States</b></label>
+				
+				<table cellpadding="0" cellspacing="0" class="blue-centers-states">
+					<tbody>
+						<tr>
+							<td><ul>
+							<t:data name="mystate" class="categories" parent="/states" />
+							<t:set id="iCounter" value="0" />
+							<t:list id="mystate">
+								<t:set id="iCounter" value="iCounter + 1" />
+								<li>
+									<input class="filter-input" type="checkbox" id="state_${name}" name="state" value="${name}" />
+									<label class="filter-label" for="state_${name}">${label}</label>
+								</li>
+								<t:if test="iCounter > 12">
+									<t:set id="iCounter" value="0" />
+									</ul></td>
+									<td><ul>
+								</t:if>
+							</t:list>
+							</ul></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<input type="submit" value="View Results" />
+		</div>
+	</form>
+</div>
+
+<p>Blue Distinction<sup>&reg;</sup> Centers met overall quality measures for patient safety and outcomes, developed with input from the medical community. Blue Distinction<sup>&reg;</sup> Centers+ also met cost measures that address consumers&rsquo; need for affordable healthcare. Individual outcomes may vary. National criteria is displayed on <a href="/preview!www.bcbs.com/">www.bcbs.com</a>.  A Local Blue Plan may require additional criteria for facilities located in its own service area.  To find out which services and providers (including hospital based physicians) are covered under your policy, or to learn about Local Blue Plan Criteria, contact your Local Blue Plan; and contact your provider before making an appointment to verify its current Network and Blue Distinction Centers status. Each hospital&rsquo;s Cost Index is calculated separately, based on data from its Local Blue Plan. Hospitals in portions of CA, ID, NY, PA, and WA may lie in areas served by two Local Blue Plans, resulting in two Cost Index figures; and their own Local Blue Plans decide whether all hospitals in these areas must meet Blue Distinction Centers+ national criteria for one or both Cost Index figures. Neither Blue Cross and Blue Shield Association nor any Blue Plans are responsible for damages, losses, or non-covered charges resulting from Blue Distinction or other provider finder information or care received from Blue Distinction or other providers.  To find out more, contact your Local Blue Plan.</p>
