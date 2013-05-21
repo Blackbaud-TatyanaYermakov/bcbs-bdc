@@ -1,0 +1,645 @@
+<style>
+.bdcShareWrap { width: 100%; }
+.bdcShareSearch{ float: left; width: 575px; }
+.bdcShareBut{ float: right; padding-bottom: 2px; padding-top: 10px; width: 310px; }
+.bdcFplus { position: relative; top: 1px; left: 1px; font-size: 14px; }
+</style>
+
+<t:set id="results_present" value="0" />
+<t:if test="length > 0">
+  <t:include id="item-383884238" />
+  
+  <t:set id="ctrtype" value="'Specialty Care'" />
+  <t:if test="param.center_type != null">
+    <t:data name="mycenters" class="categories" parent="/blue-distinction-centers" />
+    <t:list id="mycenters">
+      <t:if test="name == param.center_type"><t:set id="ctrtype" value="label" /></t:if>
+    </t:list>
+  </t:if>
+  
+  <p>Facilities recognized in your specified geography are:</p>
+
+  <form enctype="application/x-www-form-urlencoded" id="treatment-options" method="get" action="/innovations/bluedistinction/new-bdc-finder/index.html">
+    <div class="mvm hr-top hr-bottom clearfix">
+    
+      <!-- Right Promo -->   					
+      <div style="display: inline;" id="item-385282581" class="templateComponent"></div>
+    					
+    	<div class="step"><h2>Blue Distinction Centers/ Blue Distinction Centers+</h2></div>
+    	<p class="mvm"><span class="f11em">You searched:</span></p>
+    	<table cellpadding="0" cellspacing="0" class="white-tbl">
+    		<tbody>
+    			<tr>
+    				<td>Type of Center</td>
+    				<td>Specialty</td>
+    			</tr>
+    			<tr>
+    				<td style="vertical-align: top;">
+    					<select id="center_level_drpdwn" name="bdc_type">
+    						<option value="">All</option>
+    						<option value="bdc">Blue Distinction Centers</option>
+    						<option value="bdc-plus">Blue Distinction Centers+</option>
+    					</select>
+    				</td>
+    				<td>
+    					<select id="center_type_drpdwn" name="center_type_drpdwn" multiple="true">
+    						<option value="">All</option>
+    						<option value="bariatric">Bariatric Surgery</option>
+    						<option value="knee-hip">Knee and Hip Replacement</option>
+    						<option value="cardiac">Cardiac Care</option>
+    						<option value="spine">Spine Surgery</option>
+    						<option value="cancer">Complex and Rare Cancers</option>
+    						<option value="transplant">Transplants</option>
+    					</select>
+    					<div id="real_center_types" style="display: none;">
+                <input type="checkbox" id="all_id" />
+                <input type="checkbox" name="center_type" class="filter-speciality" value="bariatric" />
+                <input type="checkbox" name="center_type" class="filter-speciality" value="knee-hip" />
+                <input type="checkbox" name="center_type" class="filter-speciality" value="cardiac" />
+                <input type="checkbox" name="center_type" class="filter-speciality" value="spine" />
+                <input type="checkbox" name="center_type" class="filter-speciality" value="cancer" />
+                <input type="checkbox" name="center_type" class="filter-speciality" value="transplant" />
+              </div>
+    				</td>										
+    			</tr>
+    		</tbody>
+    	</table>
+    	
+    	<div id="cancer_id_sub" style="display: none;">
+    		<p>Following cancer types:</p>
+    		<span id="filter-cancer-sub-list">All</span>
+    		<div class="f75em"><a href="#" class="filter-cancer-sub-change">Change / add cancer type</a></div>
+    		
+    		<div id="filter-cancer-sub-block" class="pop-up-block" style="display: none;">
+    			<div class="tar pbs mbs hr-bottom">
+    				<a href="#" class="filter-cancer-sub-change">Close</a>
+    			</div>
+    			<span class="pl1em">
+    				<input type="checkbox" id="cancer_sub_all" class="all-sub-speciality" />
+    				<label class="filter-label f95em" for="cancer_sub_all"><b>Search ALL Sub-specialties</b></label>
+    			</span>
+    			<table cellpadding="0" cellspacing="0" class="cancer-sub-entries">
+    				<tbody>
+    					<tr>
+    						<td>
+    							<ul class="sub-list" id="cancer_sub">
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub1_id" name="cancer_type" type="checkbox" value="acute-leukemia" />
+    									<label class="filter-label" for="cancer_sub1_id">Acute Leukemia - Inpatient, Non-Surgical</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub2_id" name="cancer_type" type="checkbox" value="bladder" />
+    									<label class="filter-label" for="cancer_sub2_id">Bladder</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub3_id" name="cancer_type" type="checkbox" value="bone" />
+    									<label class="filter-label" for="cancer_sub3_id">Bone - Primary</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub4_id" name="cancer_type" type="checkbox" value="brain" />
+    									<label class="filter-label" for="cancer_sub4_id">Brain - Primary</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub5_id" name="cancer_type" type="checkbox" value="esophageal" />
+    									<label class="filter-label" for="cancer_sub5_id">Esophageal</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub6_id" name="cancer_type" type="checkbox" value="gastric" />
+    									<label class="filter-label" for="cancer_sub6_id">Gastric</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub7_id" name="cancer_type" type="checkbox" value="head-neck" />
+    									<label class="filter-label" for="cancer_sub7_id">Head and Neck</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub8_id" name="cancer_type" type="checkbox" value="liver" />
+    									<label class="filter-label" for="cancer_sub8_id">Liver - Primary</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub9_id" name="cancer_type" type="checkbox" value="ocular" />
+    									<label class="filter-label" for="cancer_sub9_id">Ocular Melanoma</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub10_id" name="cancer_type" type="checkbox" value="pancreatic" />
+    									<label class="filter-label" for="cancer_sub10_id">Pancreatic</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub11_id" name="cancer_type" type="checkbox" value="rectal" />
+    									<label class="filter-label" for="cancer_sub11_id">Rectal</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub12_id" name="cancer_type" type="checkbox" value="soft-tissue" />
+    									<label class="filter-label" for="cancer_sub12_id">Soft tissue sarcomas</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="cancer_sub13_id" name="cancer_type" type="checkbox" value="thyroid" />
+    									<label class="filter-label" for="cancer_sub13_id">Thyroid - Medullary and/or Anaplastic</label>
+    								</li>
+    							</ul>
+    						</td>
+    					</tr>
+    				</tbody>
+    			</table>
+    			<div class="hr-top pts pls">
+    				<a href="#" class="filter-cancer-sub-reset plm">Cancel</a>
+    			</div>
+    		</div>
+    	</div>
+    	
+    	<div id="transplant_id_sub" style="display: none;">
+    		<p>Following transplant types:</p>
+    		<span id="filter-transplant-sub-list">All</span>
+    		<div class="f75em"><a href="#" class="filter-transplant-sub-change">Change / add transplant type</a></div>
+    		
+    		<div id="filter-transplant-sub-block" class="pop-up-block" style="display: none;">
+    			<div class="tar pbs mbs hr-bottom">
+    				<a href="#" class="filter-transplant-sub-change">Close</a>
+    			</div>
+    			<span class="pl1em">
+    				<input type="checkbox" id="transplant_sub_all" class="all-sub-speciality" />
+    				<label class="filter-label f95em" for="transplant_sub_all"><b>Search ALL Sub-specialties</b></label>
+    			</span>
+    			<table cellpadding="0" cellspacing="0" class="transplant-sub-entries">
+    				<tbody>
+    					<tr>
+    						<td>
+    							<ul class="sub-list" id="transplant_sub">
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub9_id" name="transplant_type" type="checkbox" value="adult-allogeneic-marrow" />
+    									<label class="filter-label" for="transplant_sub9_id">Adult Allogeneic Bone Marrow/Stem Cell</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub10_id" name="transplant_type" type="checkbox" value="adult-autologous-marrow" />
+    									<label class="filter-label" for="transplant_sub10_id">Adult Autologous Bone Marrow/Stem Cell</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub11_id" name="transplant_type" type="checkbox" value="adult-marrow" />
+    									<label class="filter-label" for="transplant_sub11_id">Adult Autologous &amp; Allogeneic Bone Marrow/Stem Cell</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub12_id" name="transplant_type" type="checkbox" value="pediatric-allogeneic-marrow" />
+    									<label class="filter-label" for="transplant_sub12_id">Pediatric Allogeneic Bone Marrow/Stem Cell</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub13_id" name="transplant_type" type="checkbox" value="pediatric-autologous-marrow" />
+    									<label class="filter-label" for="transplant_sub13_id">Pediatric Autologous Bone Marrow/Stem Cell</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub14_id" name="transplant_type" type="checkbox" value="pediatric-marrow" />
+    									<label class="filter-label" for="transplant_sub14_id">Pediatric Autologous &amp; Allogeneic Bone Marrow/Stem Cell</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub15_id" name="transplant_type" type="checkbox" value="marrow" />
+    									<label class="filter-label" for="transplant_sub15_id">Adult &amp; Pediatric Allogeneic Bone Marrow/Stem Cell</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub16_id" name="transplant_type" type="checkbox" value="marrow" />
+    									<label class="filter-label" for="transplant_sub16_id">Adult &amp; Pediatric Autologous Bone Marrow/Stem Cell</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub17_id" name="transplant_type" type="checkbox" value="marrow" />
+    									<label class="filter-label" for="transplant_sub17_id">Adult &amp; Pediatric Autologous &amp; Allogeneic Bone Marrow/Stem Cell</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub3_id" name="transplant_type" type="checkbox" value="adult-heart-lung" />
+    									<label class="filter-label" for="transplant_sub3_id">Adult Combination Heart Lung</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub18_id" name="transplant_type" type="checkbox" value="pediatric-heart-lung" />
+    									<label class="filter-label" for="transplant_sub18_id">Pediatric Combination Heart Lung</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub1_id" name="transplant_type" type="checkbox" value="adult-heart" />
+    									<label class="filter-label" for="transplant_sub1_id">Adult Heart</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub19_id" name="transplant_type" type="checkbox" value="pediatric-heart" />
+    									<label class="filter-label" for="transplant_sub19_id">Pediatric Heart</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub4_id" name="transplant_type" type="checkbox" value="adult-liver" />
+    									<label class="filter-label" for="transplant_sub4_id">Adult Liver</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub20_id" name="transplant_type" type="checkbox" value="pediatric-liver" />
+    									<label class="filter-label" for="transplant_sub20_id">Pediatric Liver</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub2_id" name="transplant_type" type="checkbox" value="adult-lung" />
+    									<label class="filter-label" for="transplant_sub2_id">Adult Lung</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub21_id" name="transplant_type" type="checkbox" value="pediatric-lung" />
+    									<label class="filter-label" for="transplant_sub21_id">Pediatric Lung</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub6_id" name="transplant_type" type="checkbox" value="adult-pancreas" />
+    									<label class="filter-label" for="transplant_sub6_id">Adult Pancreas (PAK/PTA)</label>
+    								</li>
+    								<li class="clearfix">
+    									<input class="filter-input" id="transplant_sub5_id" name="transplant_type" type="checkbox" value="simultaneous-pancreas-kidney" />
+    									<label class="filter-label" for="transplant_sub5_id">Adult Simultaneous Pancreas Kidney (SPK)</label>
+    								</li>
+    							</ul>
+    						</td>
+    					</tr>
+    				</tbody>
+    			</table>
+    			<div class="hr-top pts pls">
+    				<a href="#" class="filter-transplant-sub-reset plm">Cancel</a>
+    			</div>
+    		</div>
+    	</div>
+    	
+    	<p>Within the states of:</p>
+    	<span id="filter-states-list">All States</span>
+    	<div class="f75em"><a href="#" class="filter-states-change">Change / add states</a></div>
+    	
+    	<div id="filter-states-block" class="pop-up-block" style="display: none;">
+    		<div class="tar pbs mbs hr-bottom">
+    			<a href="#" class="filter-states-change">Close</a>
+    		</div>
+    		<span class="pl1em">
+    			<input type="checkbox" id="center_states_all" name="state" value="" class="filter-state" />
+    			<label class="filter-label f95em" for="center_states_all"><b>Search ALL States</b></label>
+    		</span>
+    		<table cellpadding="0" cellspacing="0" class="blue-centers-states">
+    			<tbody>
+    				<tr>
+    					<td><ul>
+    					<t:data name="mystate" class="categories" parent="/states" />
+    					<t:set id="iCounter" value="0" />
+    					<t:list id="mystate">
+    						<t:set id="iCounter" value="iCounter + 1" />
+    						<li>
+    							<input class="filter-input" type="checkbox" id="state_${name}" name="state" value="${name}" />
+    							<label class="filter-label" for="state_${name}">${label}</label>
+    						</li>
+    						<t:if test="iCounter > 12">
+    							<t:set id="iCounter" value="0" />
+    							</ul></td>
+    							<td><ul>
+    						</t:if>
+    					</t:list>
+    					</ul></td>
+    				</tr>
+    			</tbody>
+    		</table>
+    		<div class="hr-top pts pls">
+    			<a href="#" class="filter-states-reset plm">Cancel</a>
+    		</div>
+    	</div>
+    	
+      <div class="mtl mbm clearfix bdcShareWrap">
+        <div class="bdcShareSearch">
+          <input type="submit" value="Search Again" />
+        </div>    
+        <div class="bdcShareBut">
+          <div class="f75em mrm" style="display:inline;">
+            <div style="display:inline;" class="templateComponent" id="printer_friendly-384152267"></div>
+          </div>
+
+          <div class="f75em" style="display:inline;">
+            <a href="http://addthis.com/bookmark.php" class="news-list-item-share" target="_blank">Share Results</a>
+           </div>
+        </div>
+      </div>
+    
+    </div>
+  </form>
+
+  <table class="table-autostripe table-stripeclass:alternate table-autosort" id="center_info">
+    <thead>
+      <tr>
+        <th class="table-sortable:alphanumeric" width="21%">Name <img border="0" src="http://www.bcbs.com/assets/images/sort2.gif" /></th>
+        <th class="table-sortable:alphanumeric" width="17%">City <img border="0" src="http://www.bcbs.com/assets/images/sort2.gif" /></th>
+        <th class="table-sortable:alphanumeric" width="10%">State <img border="0" src="http://www.bcbs.com/assets/images/sort2.gif" /></th>
+        <t:if test="param.bdc_type=='' || param.bdc_type=='bdc'"><th class="detail" width="19%">Blue Distinction Center for:</th></t:if>
+        <t:if test="param.bdc_type=='' || param.bdc_type=='bdc-plus'"><th class="detail" width="19%">Blue Distinction Center<span class="bdcFplus">+</span> for:</th></t:if>
+        <th class="mapthis" width="12%">&nbsp;</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <t:set id="paramSpecialties" value="param.filter_specialties" />
+      <t:set id="paramCancerSubTypes" value="param.filter_cancer" />
+      <t:set id="paramTransplantSubTypes" value="param.filter_transplant" />
+    
+      <t:list>
+        <t:set id="display_record" value="0" />
+        <t:set id="checkCancerSubType" value="0" />
+        <t:set id="checkTransplantSubType" value="0" />
+
+        <t:if test="isNull(paramSpecialties)">
+            <t:set id="display_record" value="1" />
+        </t:if>
+
+        <t:if test="display_record==0">
+          <t:if test="param.bdc_type==''">
+            <t:if test="center_type_all.length > 0">
+              <t:list id="center_type_all">
+                <t:set id="continue" value="0" />
+                
+                <t:set id="matchlabel" value="'.*'" />
+                <t:set id="matchlabel" value="concat(matchlabel, name)" />
+                <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                <t:if test="matches(paramSpecialties, matchlabel)">
+                  <t:set id="continue" value="1" />
+                </t:if>
+                
+                <t:if test="name=='cancer' && continue==1">
+                  <t:set id="continue" value="0" />
+                  <t:set id="checkCancerSubType" value="1" />
+                </t:if>
+              
+                <t:if test="name=='transplant' && continue==1">
+                  <t:set id="continue" value="0" />
+                  <t:set id="checkTransplantSubType" value="1" />
+                </t:if>
+
+                <t:if test="continue==1">
+                  <t:set id="display_record" value="1" />
+                </t:if>
+              </t:list>
+            </t:if>
+          </t:if> 
+           
+          <t:if test="param.bdc_type=='bdc'"> 
+            <t:if test="center_type.length > 0">
+              <t:list id="center_type">
+                <t:set id="continue" value="0" />
+                
+                <t:set id="matchlabel" value="'.*'" />
+                <t:set id="matchlabel" value="concat(matchlabel, name)" />
+                <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                <t:if test="matches(paramSpecialties, matchlabel)">
+                  <t:set id="continue" value="1" />
+                </t:if>
+                
+                <t:if test="name=='cancer' && continue==1">
+                  <t:set id="continue" value="0" />
+                  <t:set id="checkCancerSubType" value="1" />
+                </t:if>
+              
+                <t:if test="name=='transplant' && continue==1">
+                  <t:set id="continue" value="0" />
+                  <t:set id="checkTransplantSubType" value="1" />
+                </t:if>
+
+                <t:if test="continue==1">
+                  <t:set id="display_record" value="1" />
+                </t:if>
+              </t:list>
+            </t:if>
+          </t:if>
+          
+          <t:if test="param.bdc_type=='bdc-plus'"> 
+            <t:if test="center_type_pls.length > 0">
+              <t:list id="center_type_pls">
+                <t:set id="continue" value="0" />
+                
+                <t:set id="matchlabel" value="'.*'" />
+                <t:set id="matchlabel" value="concat(matchlabel, name)" />
+                <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                <t:if test="matches(paramSpecialties, matchlabel)">
+                  <t:set id="continue" value="1" />
+                </t:if>
+                
+                <t:if test="name=='cancer' && continue==1">
+                  <t:set id="continue" value="0" />
+                  <t:set id="checkCancerSubType" value="1" />
+                </t:if>
+              
+                <t:if test="name=='transplant' && continue==1">
+                  <t:set id="continue" value="0" />
+                  <t:set id="checkTransplantSubType" value="1" />
+                </t:if>
+
+                <t:if test="continue==1">
+                  <t:set id="display_record" value="1" />
+                </t:if>
+              </t:list>
+            </t:if>
+          </t:if>     
+        </t:if>
+
+        <t:if test="display_record==0 && checkCancerSubType==1 && isNull(paramCancerSubTypes)">
+          <t:set id="display_record" value="1" />
+        </t:if>
+        <t:if test="display_record==0 && checkCancerSubType==1 && paramCancerSubTypes != null">
+            <t:if test="param.bdc_type==''">
+              <t:if test="cancer_type_all.length > 0">
+                <t:list id="cancer_type_all">
+                  <t:set id="matchlabel" value="'.*'" />
+                  <t:set id="matchlabel" value="concat(matchlabel, name)" />
+                  <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                  <t:if test="matches(paramCancerSubTypes, matchlabel)">
+                    <t:set id="display_record" value="1" />
+                  </t:if>
+                </t:list>
+              </t:if>
+            </t:if>
+            
+            <t:if test="param.bdc_type=='bdc'">
+              <t:if test="cancer_type.length > 0">
+                <t:list id="cancer_type">
+                  <t:set id="matchlabel" value="'.*'" />
+                  <t:set id="matchlabel" value="concat(matchlabel, name)" />
+                  <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                  <t:if test="matches(paramCancerSubTypes, matchlabel)">
+                    <t:set id="display_record" value="1" />
+                  </t:if>
+                </t:list>
+              </t:if>
+            </t:if>
+            
+            <t:if test="param.bdc_type=='bdc-plus'">
+              <t:if test="cancer_type_pls.length > 0">
+                <t:list id="cancer_type_pls">
+                  <t:set id="matchlabel" value="'.*'" />
+                  <t:set id="matchlabel" value="concat(matchlabel, name)" />
+                  <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                  <t:if test="matches(paramCancerSubTypes, matchlabel)">
+                    <t:set id="display_record" value="1" />
+                  </t:if>
+                </t:list>
+              </t:if>
+            </t:if>
+        </t:if>
+        
+        <t:if test="display_record==0 && checkTransplantSubType==1 && isNull(paramTransplantSubTypes)">
+          <t:set id="display_record" value="1" />
+        </t:if>
+        <t:if test="display_record==0 && checkTransplantSubType==1 && paramTransplantSubTypes != null">
+            <t:if test="param.bdc_type==''">
+              <t:if test="transplant_type_all.length > 0">
+                <t:list id="transplant_type_all">
+                  <t:set id="matchlabel" value="'.*'" />
+                  <t:set id="matchlabel" value="concat(matchlabel, name)" />
+                  <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                  <t:if test="matches(paramTransplantSubTypes, matchlabel)">
+                    <t:set id="display_record" value="1" />
+                  </t:if>
+                </t:list>
+              </t:if>
+            </t:if>
+            
+            <t:if test="param.bdc_type=='bdc'">
+              <t:if test="transplant_type.length > 0">
+                <t:list id="transplant_type">
+                  <t:set id="matchlabel" value="'.*'" />
+                  <t:set id="matchlabel" value="concat(matchlabel, name)" />
+                  <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                  <t:if test="matches(paramTransplantSubTypes, matchlabel)">
+                    <t:set id="display_record" value="1" />
+                  </t:if>
+                </t:list>
+              </t:if>
+            </t:if>
+            
+            <t:if test="param.bdc_type=='bdc-plus'">
+              <t:if test="transplant_type_pls.length > 0">
+                <t:list id="transplant_type_pls">
+                  <t:set id="matchlabel" value="'.*'" />
+                  <t:set id="matchlabel" value="concat(matchlabel, name)" />
+                  <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                  <t:if test="matches(paramTransplantSubTypes, matchlabel)">
+                    <t:set id="display_record" value="1" />
+                  </t:if>
+                </t:list>
+              </t:if>
+            </t:if>
+        </t:if>
+       
+        <t:if test="display_record==1">
+          <t:set id="results_present" value="1" />
+          
+          <t:set id="pptlabel" value="''" />
+          <t:set id="ppctlabel" value="''" />
+          <t:set id="ppclabel" value="''" />
+          <t:set id="pptlabelpls" value="''" />
+          <t:set id="ppctlabelpls" value="''" />
+          <t:set id="ppclabelpls" value="''" />
+    
+          <t:if test="pp_center_type.length > 0"><t:list id="pp_center_type"><t:set id="ppctlabel" value="concat(ppctlabel, label)" /></t:list></t:if>
+          <t:if test="pp_cancer_type.length > 0"><t:list id="pp_cancer_type"><t:set id="ppclabel" value="concat(ppclabel, label)" /></t:list></t:if>
+          <t:if test="pp_transplant_type.length > 0"><t:list id="pp_transplant_type"><t:set id="pptlabel" value="concat(pptlabel, label)" /></t:list></t:if>
+          <t:if test="pp_center_type_pls.length > 0"><t:list id="pp_center_type_pls"><t:set id="ppctlabelpls" value="concat(ppctlabelpls, label)" /></t:list></t:if>
+          <t:if test="pp_cancer_type_pls.length > 0"><t:list id="pp_cancer_type_pls"><t:set id="ppclabelpls" value="concat(ppclabelpls, label)" /></t:list></t:if>
+          <t:if test="pp_transplant_type_pls.length > 0"><t:list id="pp_transplant_type_pls"><t:set id="pptlabelpls" value="concat(pptlabelpls, label)" /></t:list></t:if>
+  
+          <tr>
+            <td class="name">${title}<span class="cardiac"><t:list id="cardiac_disclaimers"><t:if test="name == 'asterisk'">*</t:if></t:list></span></td>
+            <td class="city">${city}</td>
+            <td class="state"><t:list id="state"><t:set id="thestate" value="name" /></t:list>${thestate}</td>
+    
+            <t:if test="param.bdc_type=='' || param.bdc_type=='bdc'">
+              <td class="detail">
+                <div class="all-only">
+                  <ul class="center_types_list">            
+                    <t:list id="center_type">
+                      <li>${label}
+                        <t:set id="matchlabel" value="'.*'" />
+                        <t:set id="matchlabel" value="concat(matchlabel, label)" />
+                        <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                        <t:if test="matches(ppctlabel, matchlabel)">**</t:if>
+                      <t:if test="matches(label, '.*Cancers.*')">
+      				        <t:if test="cancer_type.length > 0"> 
+                      <ul class="cancer_types_list">
+                      <t:list id="cancer_type">
+                        <li>${label}
+                          <t:set id="matchlabel" value="'.*'" />
+                          <t:set id="matchlabel" value="concat(matchlabel, label)" />
+                          <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                          <t:if test="matches(ppclabel, matchlabel)">**</t:if>
+                      </t:list>                
+                    </ul></t:if>
+                    </t:if>
+                    <t:else>
+                    <t:if test="matches(label, '.*Transplant.*')">
+                     <t:if test="transplant_type.length > 0"><ul class="transplant_types_list">
+                      <t:list id="transplant_type">
+                        <li>${label}
+                          <t:set id="matchlabel" value="'.*'" />
+                          <t:set id="matchlabel" value="concat(matchlabel, label)" />
+                          <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                          <t:if test="matches(pptlabel, matchlabel)">**</t:if>
+                        </li>
+                      </t:list>                
+                    </ul></t:if>
+                    </t:if>
+                    </t:else>
+                    </li>
+                    </t:list>              
+                  </ul>
+                </div>
+              </td>
+            </t:if>
+            
+            <t:if test="param.bdc_type=='' || param.bdc_type=='bdc-plus'">
+             <td class="detail">
+              <div class="all-only">
+                <ul class="center_types_list">            
+                  <t:list id="center_type_pls">
+                    <li>${label}
+                      <t:set id="matchlabel" value="'.*'" />
+                      <t:set id="matchlabel" value="concat(matchlabel, label)" />
+                      <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                      <t:if test="matches(ppctlabelpls, matchlabel)">**</t:if>
+                    <t:if test="matches(label, '.*Cancers.*')">
+    	              <t:if test="cancer_type_pls.length > 0"> 
+                    <ul class="cancer_types_list">
+                    <t:list id="cancer_type_pls">
+                      <li>${label}
+                        <t:set id="matchlabel" value="'.*'" />
+                        <t:set id="matchlabel" value="concat(matchlabel, label)" />
+                        <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                        <t:if test="matches(ppclabelpls, matchlabel)">**</t:if>
+                    </t:list>                
+                  </ul></t:if>
+                  </t:if>
+                  <t:else>
+                  <t:if test="matches(label, '.*Transplant.*')">
+                   <t:if test="transplant_type_pls.length > 0"><ul class="transplant_types_list">
+                    <t:list id="transplant_type_pls">
+                      <li>${label}
+                        <t:set id="matchlabel" value="'.*'" />
+                        <t:set id="matchlabel" value="concat(matchlabel, label)" />
+                        <t:set id="matchlabel" value="concat(matchlabel, '.*')" />
+                        <t:if test="matches(pptlabelpls, matchlabel)">**</t:if>
+                      </li>
+                    </t:list>                
+                  </ul></t:if>
+                  </t:if>
+                  </t:else>
+                  </li>
+                  </t:list>              
+                </ul>
+              </div>
+             </td>
+            </t:if>
+    
+            <td class="map">
+              <t:if test="location.zip != null">
+                <a href="http://maps.google.com/maps?q=${title}&near=${location}&num=6&iwloc=A" target="_blank" title="View location on Google Maps" class="bdc-maplink" onClick="_gaq.push(['_trackEvent', 'link', 'Blue Distinction \'Map this\'', '${title}, ${location.state}']); _gaq.push(['_trackPageview', '/external/']);">Map this <img border="0" src="http://www.bcbs.com/assets/images/external_link.gif" alt="external link" /></a>
+              </t:if>
+              <t:else>
+                <p id="no-results" style="display: none;">No Blue Distinction Centers were found that match your search criteria. Please change one or more of your selections.</p>
+              </t:else>
+            </td>
+            
+          </tr>
+        </t:if>      
+          
+      </t:list>
+    </tbody>
+  </table>
+</t:if>
+
+<t:if test="results_present==0">
+  <p style="clear:both; font-weight: bold;" id="no-results-old">No Blue Distinction Centers were found that match your search criteria. Please change one or more of your selections.</p>
+</t:if>
+
+<p class="slink" style="font-weight: bold;">
+	<a href="http://www.bcbs.com/innovations/bluedistinction/center-list/selector-map.html" class="aslink">New Search</a>
+</p>
