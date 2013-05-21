@@ -1,0 +1,26 @@
+<t:set id="location" value="'the US'" />
+<t:set id="ctrtype" value="'Specialty Care'" />
+<t:if test="param.state != null"><t:set id="location" value="param.state" /></t:if>
+<t:if test="param.center_type != null">
+<t:if test="param.center_type != 'all'">
+<t:data name="mycenters" class="categories" parent="/blue-distinction-centers" />
+<t:list id="mycenters"><t:if test="name == param.center_type"><t:set id="ctrtype" value="label" /></t:if></t:list>
+</t:if></t:if>
+
+
+<h2 id="center_type_in_state">Blue Distinction Centers and Blue Distinction Centers+<br /><br /></h2>
+
+<DIV style="DISPLAY: inline" id="templatelist-430593569" class="templateComponent"></DIV>
+
+
+
+<p>Note:  If you select &ldquo;Map this&rdquo; above (a feature supplied by Google Maps) you may want to contact the hospital before going there to verify its address.  Despite efforts to assure accuracy, the hospital&rsquo;s name 
+and address may have changed.</p>
+
+<p>Blue Distinction<sup>&reg;</sup> Centers met overall quality measures for patient safety and outcomes, developed with input from the medical community. Blue Distinction<sup>&reg;</sup> Centers+ also met cost measures that address consumers&rsquo; need for affordable healthcare. Individual outcomes may vary. National criteria is displayed on <a href="/preview!www.bcbs.com/">www.bcbs.com</a>.  A Local Blue Plan may require additional criteria for facilities located in its own service area.  To find out which services and providers (including hospital based physicians) are covered under your policy, or to learn about Local Blue Plan Criteria, contact your Local Blue Plan; and contact your provider before making an appointment to verify its current Network and Blue Distinction Centers status. Each hospital&rsquo;s Cost Index is calculated separately, based on data from its Local Blue Plan. Hospitals in portions of CA, ID, NY, PA, and WA may lie in areas served by two Local Blue Plans, resulting in two Cost Index figures; and their own Local Blue Plans decide whether all hospitals in these areas must meet Blue Distinction Centers+ national criteria for one or both Cost Index figures. Neither Blue Cross and Blue Shield Association nor any Blue Plans are responsible for damages, losses, or non-covered charges resulting from Blue Distinction or other provider finder information or care received from Blue Distinction or other providers.  To find out more, contact your Local Blue Plan.</p>
+
+<p>*Cardiac surgical services (Coronary Artery Bypass Graft Surgery) are not available at this facility</p>
+
+<p> **This hospital indicated voluntarily that Radiologists, Anesthesiologists, Pathologists, Hospitalists, and Intensivists who provide services for elective (scheduled) adult procedures related to this Blue Distinction&reg; Specialty Care program are in the local Plan&rsquo;s BlueCard PPO network.</p>
+
+
